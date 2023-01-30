@@ -6,7 +6,7 @@ const App = () => {
     const address = useAddress();
     console.log("👋 Address:", address);
     // Initialize our Edition Drop contract
-    const { contract: editionDrop } = useContract("INSERT_EDITION_DROP_ADDRESS", "edition-drop");
+    const { contract: editionDrop } = useContract("0x206Cb0989465947ACdb5f6041809AD68FFaF5284", "edition-drop");
     // Hook to check if the user has our NFT
     const { data: nftBalance } = useNFTBalance(editionDrop, address, "0")
 
