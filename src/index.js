@@ -14,9 +14,9 @@ const activeChainId = ChainId.Goerli;
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
-  <React.StrictMode>
-    <ThirdwebProvider desiredChainId={activeChainId}>
-      <App />
-    </ThirdwebProvider>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <ThirdwebProvider desiredChainId={activeChainId}>
+            <App />
+        </ThirdwebProvider>
+    </React.StrictMode>,
 );
