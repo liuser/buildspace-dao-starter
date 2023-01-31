@@ -13,6 +13,10 @@ const App = () => {
     const { contract: editionDrop } = useContract(editionDropAddress, "edition-drop");
     // Hook to check if the user has our NFT
     const { data: nftBalance } = useNFTBalance(editionDrop, address, "0")
+    const hasClaimedNFT = useMemo(() => {
+        return nftBalance && nftBalance.gt(0)
+    }, [nftBalance])
+
 
     if (!address) {
         return (
@@ -27,9 +31,7 @@ const App = () => {
 
 
 
-    const hasClaimedNFT = useMemo(() => {
-        return nftBalance && nftBalance.gt(0)
-    }, [nftBalance])
+
 
     if (hasClaimedNFT) {
         return (
