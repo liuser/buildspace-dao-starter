@@ -165,16 +165,16 @@ const App = () => {
     if (hasClaimedNFT) {
         return (
             <div className="member-page">
-                <h1>🍪DAO Member Page</h1>
-                <p>Congratulations on being a member</p>
+                <h1>猴子岛DAO</h1>
+                <p>恭喜你成为我们的一员</p>
                 <div>
                     <div>
-                        <h2>Member List</h2>
+                        <h2>成员列表</h2>
                         <table className="card">
                             <thead>
                             <tr>
-                                <th>Address</th>
-                                <th>Token Amount</th>
+                                <th>地址</th>
+                                <th>Token 数量</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -190,7 +190,7 @@ const App = () => {
                         </table>
                     </div>
                     <div>
-                        <h2>Active Proposals</h2>
+                        <h2>正在进行的投票</h2>
                         <form
                             onSubmit={async (e) => {
                                 e.preventDefault();
@@ -300,10 +300,10 @@ const App = () => {
                             ))}
                             <button disabled={isVoting || hasVoted} type="submit">
                                 {isVoting
-                                    ? 'Voting...'
+                                    ? '投票中...'
                                     : hasVoted
-                                        ? 'You Already Voted'
-                                        : 'Submit Votes'}
+                                        ? '你已经投过票了'
+                                        : '提交'}
                             </button>
                             {!hasVoted && (
                                 <small>
