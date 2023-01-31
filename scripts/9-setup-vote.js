@@ -22,9 +22,9 @@ import sdk from "./1-initialize-sdk.js";
 
     try {
         // This is our governance contract.
-        const vote = await sdk.getContract("INSERT_VOTE_ADDRESS", "vote");
+        const vote = await sdk.getContract("0x5639252dCD006e5C657D9734D70bee19BaE3d4Cd", "vote");
         // This is our ERC-20 contract.
-        const token = await sdk.getContract("INSERT_TOKEN_ADDRESS", "token");
+        const token = await sdk.getContract("0x0725924b2ff17d00b8a5ee5318dc034f61a1968a", "token");
         // Grab our wallet's token balance, remember -- we hold basically the entire supply right now!
         const ownedTokenBalance = await token.balanceOf(
             process.env.WALLET_ADDRESS
