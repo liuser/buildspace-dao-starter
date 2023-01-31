@@ -14,16 +14,10 @@ const App = () => {
     // Hook to check if the user has our NFT
     const { data: nftBalance } = useNFTBalance(editionDrop, address, "0")
 
-    const hasClaimedNFT = useMemo(() => {
-        return nftBalance && nftBalance.gt(0)
-    }, [nftBalance])
-
-    // This is the case where the user hasn't connected their wallet
-    // to your web app. Let them call connectWallet.
     if (!address) {
         return (
             <div className="landing">
-                <h1>Welcome to NarutoDAO</h1>
+                <h1>欢迎来到猴子岛</h1>
                 <div className="btn-hero">
                     <ConnectWallet />
                 </div>
@@ -31,10 +25,26 @@ const App = () => {
         );
     }
 
+
+
+    const hasClaimedNFT = useMemo(() => {
+        return nftBalance && nftBalance.gt(0)
+    }, [nftBalance])
+
+    if (hasClaimedNFT) {
+        return (
+            <div className="member-page">
+                <h1>猴子成员管理页面</h1>
+                <p>恭喜你成为我们的一员</p>
+            </div>
+        );
+    };
+
+
     // Render mint nft screen.
     return (
         <div className="mint-nft">
-            <h1>Mint your free 🍪DAO Membership NFT</h1>
+            <h1>获取你的猴子DAO NFT</h1>
             <div className="btn-hero">
                 <Web3Button
                     contractAddress={editionDropAddress}
@@ -48,7 +58,7 @@ const App = () => {
                         console.error("Failed to mint NFT", error);
                     }}
                 >
-                    Mint your NFT (FREE)
+                   获取你的猴子 (免费)
                 </Web3Button>
             </div>
         </div>
